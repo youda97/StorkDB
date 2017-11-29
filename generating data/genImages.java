@@ -15,16 +15,14 @@ public class genImages {
         try {
 
             PrintWriter writer = new PrintWriter("imDum.html", "UTF-8");// the insert writer
-//            PrintWriter usrNames = new PrintWriter("sig.txt", "UTF-8");
             for(int i =111; i < 999; i ++){
 
                 writer.println("INSERT INTO Images");
                 writer.println("VALUES(");
                 writer.println("    NULL,");
                 writer.println(" <a href=\"https://download.ams.birds.cornell.edu/api/v1/asset/4"+String.valueOf(i)+"1111\"> im a monkus"+i+"</a>  ");
-//                writer.println(");");
+                writer.println(");");
             }
-//            usrNames.close();
             writer.close();
             System.out.print("all dun frand");
         } catch (FileNotFoundException e) {
@@ -35,9 +33,9 @@ public class genImages {
             e.printStackTrace();
         }
     }
-//
-//    public static void main (String[] Args){
-//        writeImages();
-//    }
+
+    public static void main (String[] Args){
+        writeImages();
+    }
 
 }

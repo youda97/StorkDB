@@ -50,11 +50,10 @@ public class sightingsGen {
             // Always close files.
             bufferedReader.close();
             PrintWriter writer = new PrintWriter("sightingsScripts.txt", "UTF-8");// the insert writer
-//            PrintWriter usrNames = new PrintWriter("sig.txt", "UTF-8");
             for(int i =0; i < 100000; i ++){
                 numFound = String.valueOf(Math.abs(random.nextInt(20)));
                 cityname = cities[Math.abs(random.nextInt(5))];
-                userID = String.valueOf(Math.abs(random.nextInt(245))+7);
+                userID = String.valueOf(Math.abs(random.nextInt(249))+1);
                 scienceName = birbnames.get(Math.abs(random.nextInt(birbnames.size())));
                 timestamp = df.format(getDate(random));
                 writer.println("INSERT INTO Sightings");
@@ -67,7 +66,6 @@ public class sightingsGen {
                 writer.println("    '"+scienceName+"'");
                 writer.println(");");
             }
-//            usrNames.close();
             writer.close();
             System.out.print("all dun frand");
         } catch (FileNotFoundException e) {
@@ -79,8 +77,8 @@ public class sightingsGen {
         }
     }
 
-//    public static void main (String[] Args){
-//        writeSightings();
-//    }
+    public static void main (String[] Args){
+        writeSightings();
+    }
 
 }

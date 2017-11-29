@@ -19,7 +19,6 @@ public class genSpecImageRelation {
             bufferedReader.close();
 
             PrintWriter writer = new PrintWriter("specImageRelationScript.txt", "UTF-8");// the insert writer
-//            PrintWriter usrNames = new PrintWriter("sig.txt", "UTF-8");
             for(int i =1; i <= birbnames.size(); i ++){
 
                 writer.println("INSERT INTO Speciesimages");
@@ -29,7 +28,6 @@ public class genSpecImageRelation {
                 writer.println("    '"+birbnames.get(i-1)+"'");
                 writer.println(");");
             }
-//            usrNames.close();
             writer.close();
             System.out.print("all dun frand");
         } catch (FileNotFoundException e) {
