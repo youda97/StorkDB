@@ -1,0 +1,78 @@
+{{#ui-modal name="showFeature5" class="showFeature5" }}
+  <div class="header">
+    <p>Record bird's sigthing at a time in a specific location with a forest based on a
+      specific user ID and specific characteristics of the bird.</p>
+    <div class="ui form">
+      <div class="inline field">
+        <label>User Name</label>
+        {{#ui-dropdown class="selection" selected="" onChange=(action (mut user))}}
+          <div class="text">User Name</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each usersModel as |user|}}
+              <div class="item" data-value="{{user.id}}">
+                {{user.UserName}}
+              </div>
+            {{/each}}
+          </div>
+        {{/ui-dropdown}}
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="ui form">
+      <div class="inline field">
+        <label>Bird Name</label>
+        {{#ui-dropdown class="selection" selected="" onChange=(action (mut bird))}}
+          <div class="text">Bird Name</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each birdsModel as |bird|}}
+              <div class="item" data-value="{{bird.id}}">
+                {{bird.id }}
+              </div>
+            {{/each}}
+          </div>
+        {{/ui-dropdown}}
+      </div>
+
+      <div class="inline field">
+        <label>Date/Time Found</label>
+        <input value={{selectedDate}} type="date" onchange={{action 'foundDate' value="target.value"}}>
+      </div>
+
+      <div class="inline field">
+        <label>Place Found</label>
+        {{#ui-dropdown class="selection" selected="" onChange=(action (mut location))}}
+          <div class="text">City Name</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each citiesModel as |location|}}
+              <div class="item" data-value="{{location.id}}">
+                {{location.id }}
+              </div>
+            {{/each}}
+          </div>
+        {{/ui-dropdown}}
+      </div>
+      <div class="inline field">
+        <label>Quantity</label>
+        {{input type="text" value = quantity }}
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="actions">
+    <div class="ui black deny button">
+      Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+      Save
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+
+{{/ui-modal}}

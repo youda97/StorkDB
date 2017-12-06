@@ -1,0 +1,40 @@
+{{#ui-modal name="showFeature1" class="showFeature1" }}
+  <div class="header">
+    List of 5 Species, click the arrow keys to get more Species
+  </div>
+  <div class="content">
+    <table class="ui table" style="margin-top: 25px;">
+      <thead>
+      <tr>
+        <th>Scientific Names</th>
+        <th>Image</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each Feature1 as |feature1|}}
+        <tr>
+          <td>
+            {{feature1.ScientificName}}
+          </td>
+          <td>
+              <div >
+                <img style="width:100px; min-height:80px; max-height:80px;" class="ui tiny circular image" src={{feature1.imageURL}}>
+              </div>
+          </td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+  <div class="actions">
+
+    <div class="ui button" {{action "loadPrevious"}}>
+      <i class="arrow left icon"></i>
+    </div>
+    <div class="ui button" {{action "loadNext"}}>
+      <i class="arrow right icon"></i>
+    </div>
+
+    <div class="ui button" {{action "exit"}}>OK</div>
+  </div>
+{{/ui-modal}}
