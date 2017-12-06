@@ -31,18 +31,25 @@ export default Component.extend({
       },
 
       onApprove: () => {
-        var newSighting = this.get('DS').createRecord('feature5', {
-          CityName: this.get('location'),
-          UserID: this.get('user'),
-          ScientificName: this.get('bird'),
-          NumberFound: this.get('quantity'),
-          Timestamp: new Date(this.get('selectedDate'))
-        });
-        newSighting.save();
-        Ember.$('.ui.showFeature5.modal').modal('hide');
-        Ember.$('.ui.showFeature5.modal').remove();
-        this.set('notDONE', false);
-        this.get('notify').success('A new record has been saved');
+        if (this.get('quantity') > 0 && this.get('location')!= undefined && this.get('user')!= undefined && this.get('bird')!= undefined && this.get('selectedDate')!= null ){
+          var newSighting = this.get('DS').createRecord('feature5', {
+            CityName: this.get('location'),
+            UserID: this.get('user'),
+            ScientificName: this.get('bird'),
+            NumberFound: this.get('quantity'),
+            Timestamp: new Date(this.get('selectedDate'))
+          });
+          newSighting.save();
+          Ember.$('.ui.showFeature5.modal').modal('hide');
+          Ember.$('.ui.showFeature5.modal').remove();
+          this.set('notDONE', false);
+          this.get('notify').success('A new record has been saved');
+        }else {
+          Ember.$('.ui.showFeature5.modal').modal('hide');
+          Ember.$('.ui.showFeature5.modal').remove();
+          this.set('notDONE', false);
+          this.get('notify').warning('Operation unsucessful due to invalid sighting amount');
+        }
 
       }
     })
