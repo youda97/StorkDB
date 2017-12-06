@@ -48,7 +48,7 @@ export default Component.extend({
           Ember.$('.ui.showFeature5.modal').modal('hide');
           Ember.$('.ui.showFeature5.modal').remove();
           this.set('notDONE', false);
-          this.get('notify').warning('Operation unsucessful due to invalid sighting amount');
+          this.get('notify').warning('Operation unsucessful');
         }
 
       }

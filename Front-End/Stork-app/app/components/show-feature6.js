@@ -24,15 +24,25 @@ export default Component.extend({
         this.set('notDONE', false);
       },
       onApprove: () => {
-        this.get('DS').query('feature6', {
+		if(this.get('location') != undefined && this.get('bird') != undefined){
+		  this.get('DS').query('feature6', {
           location: this.get('location'),
           bird: this.get('bird')
         });
-        Ember.$('.ui.showFeature6.modal').modal('hide');
-        Ember.$('.ui.showFeature6.modal').remove();
-        this.set('notDONE', false);
-        this.get('notify').success('All records have been updated');
-      }
+			Ember.$('.ui.showFeature6.modal').modal('hide');
+			Ember.$('.ui.showFeature6.modal').remove();
+			this.set('notDONE', false);
+			this.get('notify').success('All records have been updated');
+			}else {
+				Ember.$('.ui.showFeature5.modal').modal('hide');
+				Ember.$('.ui.showFeature5.modal').remove();
+				this.set('notDONE', false);
+				this.get('notify').warning('Operation unsucessful');
+			}
+		}
+		
+		  
+      
     })
       .modal('show');
   },
