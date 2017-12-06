@@ -1,0 +1,35 @@
+{{#ui-modal name="showFeature3" class="showFeature3" }}
+  <i class="close icon" {{action "exit"}}></i>
+  <div class="header">
+    <p>Queries for the 10 users with the most sightings and displays their usernames with their amount of sightings</p>
+  </div>
+  <div style="color: red">
+    <pre>
+      SELECT useraccounts.UserName, COUNT(sightings.UserID) AS results FROM Sightings
+          Inner Join  Useraccounts ON Sightings.UserID = useraccounts.userID
+                GROUP BY useraccounts.UserName
+                      ORDER by results desc LIMIT 10</pre>
+  </div>
+  <div class="content">
+    <table class="ui table" style="margin-top: 25px;">
+      <thead>
+      <tr>
+        <th>UserName</th>
+        <th>Results</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each Feature3 as |feature3|}}
+        <tr>
+          <td>
+            {{feature3.id}}
+          </td>
+          <td>
+            {{feature3.results}}
+          </td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+{{/ui-modal}}

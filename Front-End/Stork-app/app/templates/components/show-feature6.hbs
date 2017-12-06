@@ -1,0 +1,49 @@
+{{#ui-modal name="showFeature6" class="showFeature6" }}
+  <div class="header">
+    <p>Update all sightings of a bird to take place in a single location only</p>
+
+  <div class="content">
+    <div class="ui grid">
+      <div class="ui six wide column">
+        {{#ui-dropdown class="selection" selected="" onChange=(action (mut bird))}}
+          <div class="default text">Bird Name</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each birdsModel as |bird|}}
+              <div class="item" data-value="{{bird.id}}">
+                {{bird.id }}
+              </div>
+            {{/each}}
+          </div>
+        {{/ui-dropdown}}
+      </div>
+      <div class="ui six wide column">
+        {{#ui-dropdown class="selection" selected="" onChange=(action (mut location))}}
+          <div class="default text">New Location</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each citiesModel as |location|}}
+              <div class="item" data-value="{{location.id}}">
+                {{location.id }}
+              </div>
+            {{/each}}
+          </div>
+        {{/ui-dropdown}}
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+
+  <div class="actions">
+    <div class="ui black deny button">
+      Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+      Update All
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+
+{{/ui-modal}}

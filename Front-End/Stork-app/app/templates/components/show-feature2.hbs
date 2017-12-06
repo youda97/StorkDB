@@ -1,0 +1,37 @@
+{{#ui-modal name="showFeature2" class="showFeature2" }}
+  <i class="close icon" {{action "exit"}}></i>
+  <div class="header">
+
+    <div class="header">
+      <p>Queries for the amount of sightings that occur at each area and displays the amount of sightings per city in descending order</p>
+    </div>
+    <div style="color: red">
+    <pre>
+      SELECT CityName, COUNT(sightings.CityName) AS results FROM Sightings
+           GROUP BY CityName
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     ORDER by results desc</pre>
+    </div>
+  </div>
+  <div class="content">
+    <table class="ui table" style="margin-top: 25px;">
+      <thead>
+      <tr>
+        <th>CityName</th>
+        <th>Results</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each Feature2 as |feature2|}}
+        <tr>
+          <td>
+            {{feature2.CityName}}
+          </td>
+          <td>
+            {{feature2.results}}
+          </td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+{{/ui-modal}}

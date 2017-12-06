@@ -1,0 +1,133 @@
+<div class="ui massive borderless inverted menu">
+  <h1 class="header item">
+    StorkDB
+  </h1>
+  <div class="right item">
+    <div class="ui massive secondary inverted pointing menu">
+      <a class="item">{{#link-to 'home'}}Home{{/link-to}}</a>
+      <a class="active item">{{#link-to 'features'}}Features{{/link-to}}</a>
+      <a class="item">Contact</a>
+    </div>
+  </div>
+</div>
+
+<br><br><br><br>
+<div class="ui container">
+
+    <h3 class="ui grid">
+      <div class="two wide column">
+        <a  {{action 'showFeature1'}}>
+        <i class=" large columns icon"></i>&nbsp;
+        </a>
+      </div>
+      <div class="five wide left aligned column">
+        [SQL Pagination (LIMIT) and JOIN]
+      </div>
+      <div class="eight wide column">
+        Query the database to produce a list of possible species
+      </div>
+    </h3>
+
+  <br>
+
+    <h3 class="ui grid">
+      <div class="two wide column">
+        <a {{action 'showFeature2'}}>
+        <i class=" large calculator icon"></i>&nbsp;
+        </a>
+      </div>
+      <div class="five wide left aligned column">
+        [COUNT, GROUP, ORDER]
+      </div>
+      <div class="eight wide column">
+        Queries for the amount of sightings, for each
+        area and displays the amount of sightings per city in descending order
+      </div>
+    </h3>
+
+  <br>
+
+    <h3 class="ui grid">
+      <div class="two wide column">
+        <a {{action 'showFeature3'}}>
+          <i class=" large attach icon"></i>&nbsp;
+        </a>
+      </div>
+      <div class="five wide left aligned column">
+        [JOIN, COUNT, GROUP, ORDER]
+      </div>
+      <div class="eight wide column">
+        Queries for the 10 users with the most sightings and displays
+        their usernames with their amount of sightings.
+      </div>
+    </h3>
+
+  <br>
+
+    <h3 class="ui grid">
+      <div class="two wide column">
+        <a {{action 'showFeature4'}}>
+        <i class="large search icon"></i>&nbsp;
+        </a>
+      </div>
+      <div class="five wide left aligned column">
+        [Chaining LEFT JOINs, Filter]
+      </div>
+      <div class="eight wide column">
+        Queries for if a specific user has ever sighted a specific bird and
+        displays User name, the Bird names and numbers.
+      </div>
+    </h3>
+
+
+  <h3 class="ui grid">
+    <div class="two wide column">
+      <a {{action 'showFeature5'}}>
+      <i class="large edit icon"></i>&nbsp;
+      </a>
+    </div>
+    <div class="five wide left aligned column">
+      [INSERT]
+    </div>
+    <div class="eight wide column">
+      Record bird's sighting for a specific user at a specific time and location.
+    </div>
+  </h3>
+
+
+    <h3 class="ui grid">
+      <div class="two wide column">
+        <a {{action 'showFeature6'}}>
+        <i class="large write icon"></i>
+        </a>
+      </div>
+      <div class="five wide left aligned column">
+        [UPDATE]
+      </div>
+      <div class="eight wide column">
+        Update all sightings of a bird to take place in a single location only.
+      </div>
+    </h3>
+
+</div>
+
+
+{{#if isFeature1Showing}}
+  {{show-feature1 notDONE = isFeature1Showing}}
+{{/if}}
+{{#if isFeature2Showing}}
+  {{show-feature2 notDONE = isFeature2Showing}}
+{{/if}}
+{{#if isFeature3Showing}}
+  {{show-feature3 notDONE = isFeature3Showing}}
+{{/if}}
+{{#if isFeature4Showing}}
+  {{show-feature4 notDONE = isFeature4Showing}}
+{{/if}}
+{{#if isFeature5Showing}}
+  {{show-feature5 notDONE = isFeature5Showing}}
+{{/if}}
+{{#if isFeature6Showing}}
+  {{show-feature6 notDONE = isFeature6Showing}}
+{{/if}}
+

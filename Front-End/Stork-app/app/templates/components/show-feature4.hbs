@@ -1,0 +1,70 @@
+{{#ui-modal name="showFeature4" class="showFeature4" }}
+  <i class="close icon" {{action "exit"}}></i>
+  <div class="header">
+    <p>Queries for if a specific user has ever sighted a specific bird species and
+      displays User name, the Bird name, and the number of founds</p>
+    <div class="ui grid">
+      <div class="ui six wide column">
+        {{#ui-dropdown class="selection" selected="" onChange=(action (mut user))}}
+          <div class="default text">User Name</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each usersModel as |user|}}
+              <div class="item" data-value="{{user.id}}">
+                {{user.UserName}}
+              </div>
+            {{/each}}
+          </div>
+        {{/ui-dropdown}}
+      </div>
+      <div class="ui six wide column">
+        {{#ui-dropdown class="selection" selected="" onChange=(action (mut bird))}}
+          <div class="default text">Bird Name</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each birdsModel as |bird|}}
+              <div class="item" data-value="{{bird.id}}">
+                {{bird.id }}
+              </div>
+            {{/each}}
+          </div>
+        {{/ui-dropdown}}
+      </div>
+      <div class="ui four wide column">
+        <div class="ui blue button" {{action "show"}}>Show Sightings</div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="content">
+    <table class="ui table" style="margin-top: 25px;">
+      <thead>
+      <tr>
+        <th>Bird species</th>
+        <th>Bird Location</th>
+        <th>Number of Birds Found</th>
+        <th>PhysicalTraits</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each Feature4 as |feature4|}}
+        <tr>
+          <td>
+            {{feature4.ScientificName}}
+          </td>
+          <td>
+            {{feature4.CityName}}
+          </td>
+          <td>
+            {{feature4.NumberFound}}
+          </td>
+          <td>
+            {{feature4.PhysicalTraits}}
+          </td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+{{/ui-modal}}
